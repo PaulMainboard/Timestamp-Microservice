@@ -24,7 +24,7 @@ if (  // If date parameter are entered in the URL.
     /* ***NOTE: Need to make a method to handle date format M-D-YY*** */
     
     if ( // If the date format is numerical and has dashes in it. (example: YYYY-M-D or M-D-YYYY)
-        preg_match("/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/",$dateParameter['date']) || 
+        CheckInput::include_dashes_year_in_front($dateParameter['date']) || 
         CheckInput::include_dashes_year_at_end($dateParameter['date'])) { 
         
         $dateParameter = $dateParameter['date'];
