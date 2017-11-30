@@ -20,7 +20,8 @@ if (  // If date parameter are entered in the URL.
     
     /* If the date parameter is a string */
     if (CheckInput::isDate($dateParameter['date'])) { //If parameter is a timestamp. 
-            echo "timestamp";
+            $timestamp = $dateParameter['date'];
+            $date = date('m-d-y', $timestamp); // Convert timestamp to a date formatted string.
         } else { //If parameter is a date.
             /* ***NOTE: Need to make a method to handle date format M-D-YY*** */
 
