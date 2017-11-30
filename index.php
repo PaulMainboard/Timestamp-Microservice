@@ -1,6 +1,7 @@
 <?php
 
 include "classes/TimeFormatConvertorClass.php";
+include "classes/CheckInputClass.php";
 
 ///* Tell if the parameter given is a date or timestamp. */
 //if (preg_match("/^[a-zA-Z0-9]{4,10}$/i", $_GET['date'])) { //If parameter is a timestamp. 
@@ -24,8 +25,7 @@ if (  // If date parameter are entered in the URL.
     
     if ( // If the date format is numerical and has dashes in it. (example: YYYY-M-D or M-D-YYYY)
         preg_match("/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/",$dateParameter['date']) || 
-        preg_match("/^[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}$/",$dateParameter['date'])
-    ) { 
+        CheckInput::include_dashes_year_at_end($dateParameter['date'])) { 
         
         $dateParameter = $dateParameter['date'];
         
@@ -36,10 +36,7 @@ if (  // If date parameter are entered in the URL.
     }
     
     // If the date format is M-D-YYYY, bring the year to the front of the string (ex: YYYY-M-D).
-    if (
-        preg_match(
-            "/^[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}$/",$dateParameter
-        )) { 
+    if (CheckInput::include_dashes_year_at_end($dateParameter)) { 
             $dateParameter = TimeFormatConvertor::format_constant_datetime_input_month($dateParameter);   
     }
     
