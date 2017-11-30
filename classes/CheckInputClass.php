@@ -23,4 +23,11 @@ class CheckInput {
         
         return false; // The string DOES NOT have have the year in the front and/or dashes.
     }
+    
+    public static function isDate($input) {
+        if (preg_match("/^[a-zA-Z0-9]{4,10}$/i", $input)) {
+            return true;
+        }
+        return false;
+    }
 }
