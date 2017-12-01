@@ -56,10 +56,24 @@ if (  // If date parameter are entered in the URL.
     }
     
 } else { // If the URL do not have any parameters.
-    $date = "null";
-    $timestamp = "null";
+    $date = null;
+    $timestamp = null;
     $testDate = "null";
 }
 
+// Convert date and timestamp into JSON;
+class json_obj {
+    public $date;
+    public $timestamp;
+    
+    public function __construct($date=null, $timestamp=null) {
+        $this->date = $date;
+        $this->timestamp = $timestamp;
+    }
+}
+$date_json_obj = new json_obj($date, $timestamp);
+$date_json_display = json_encode($date_json_obj); 
+
 // Print date ** FOR TESTING PURPOSES **
-echo "<br>" . $date . "<br>" . $timestamp;
+//echo "<br>" . $date . "<br>" . $timestamp;
+echo $date_json_display;
