@@ -3,6 +3,8 @@
 include "classes/TimeFormatConvertorClass.php";
 include "classes/CheckInputClass.php";
 include "classes/JSON_ObjClass.php";
+include "classes/TimestampDateConvertorClass.php";
+
 
 ///* Tell if the parameter given is a date or timestamp. */
 //if (preg_match("/^[a-zA-Z0-9]{4,10}$/i", $_GET['date'])) { //If parameter is a timestamp. 
@@ -14,12 +16,18 @@ include "classes/JSON_ObjClass.php";
 // Make the date parameter case insensitive.
 $dateParameter = array_change_key_case($_GET, CASE_LOWER); 
 
+$convertor = new TimestampDateConvertor; // Create a convertor for the timestamp and date.
+
 if (CheckInput::have_parameter($dateParameter, 'date')) { // If date parameter are entered in the URL.
     
     /* If the date parameter is a string */
     if (CheckInput::isDate($dateParameter['date'])) { //If parameter is a timestamp. 
+        
             $timestamp = $dateParameter['date'];
-            $date = date('m-d-y', $timestamp); // Convert timestamp to a date formatted string.
+        
+            // Convert timestamp to a date formatted string.
+            $date = $convertor::timestamp_to_date($timestamp); 
+        
         } else { //If parameter is a date.
             /* ***NOTE: Need to make a method to handle date format M-D-YY*** */
 
@@ -31,7 +39,7 @@ if (CheckInput::have_parameter($dateParameter, 'date')) { // If date parameter a
 
             } else { // If the date format is in any other format that does not include dashes.
 
-                    $dateParameter = date("y-m-d",strtotime(trim($dateParameter['date'])));     
+                    $dateParameter = CheckInput::does_not_have_dashes($dateParameter['date']);     
 
             }
 
@@ -44,7 +52,7 @@ if (CheckInput::have_parameter($dateParameter, 'date')) { // If date parameter a
             $date =  new DateTime($dateParameter); 
 
             // Get the timestamp of the date.
-            $timestamp = $date->getTimestamp();
+            $timestamp = $convertor::date_to_timestamp($date);
         //    if (is_string($date)) { // TESTING IN PROGRESS ** Get Timestamp of a date that is a string **
         //        $timestamp = strtotime($date);
         //    }

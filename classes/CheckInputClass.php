@@ -24,6 +24,16 @@ class CheckInput {
         return false; // The string DOES NOT have have the year in the front and/or dashes.
     }
     
+    public static function does_not_have_dashes($input, $format="y-m-d") {
+        /* 
+         * Return a new date object for the date paramters the are written in the string
+         * format of the date (ex: Dec 12 2019) or is written without dashes (ex: MM/DD/YYYY).
+         * The format parameter of this method is used to give an option to change the formating
+         * of the returned date if needed.
+        */
+        return date($format ,strtotime(trim($input)));
+    }
+    
     public static function isDate($input) {
         /* Determine if the input is a date or a timestamp */
         
