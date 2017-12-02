@@ -25,9 +25,24 @@ class CheckInput {
     }
     
     public static function isDate($input) {
-        if (preg_match("/^[a-zA-Z0-9]{4,10}$/i", $input)) {
-            return true;
+        /* Determine if the input is a date or a timestamp */
+        
+        if (preg_match("/^[a-zA-Z0-9]{4,10}$/i", $input)) { 
+            return true; // Input is a date.
         }
-        return false;
+        return false; // Input is a timestamp.
+    }
+    
+    public static function have_parameter($arr, $key) {
+        /* If a parameter is entered in the URL.*/
+        
+        if (  // Check to see if the key/parameter exists in the array and that it is not empty.
+            array_key_exists($key, $arr) && 
+            trim($arr[$key]) != ""
+        ) {
+            return true;  
+        } 
+        
+        return false; // No parameters were entered in the URL or it does not exist as a parameter.
     }
 }

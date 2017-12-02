@@ -2,6 +2,7 @@
 
 include "classes/TimeFormatConvertorClass.php";
 include "classes/CheckInputClass.php";
+include "classes/JSON_ObjClass.php";
 
 ///* Tell if the parameter given is a date or timestamp. */
 //if (preg_match("/^[a-zA-Z0-9]{4,10}$/i", $_GET['date'])) { //If parameter is a timestamp. 
@@ -13,10 +14,7 @@ include "classes/CheckInputClass.php";
 // Make the date parameter case insensitive.
 $dateParameter = array_change_key_case($_GET, CASE_LOWER); 
 
-if (  // If date parameter are entered in the URL.
-    array_key_exists('date', $dateParameter) &&
-    trim($dateParameter['date']) != ""
-   ) {
+if (CheckInput::have_parameter($dateParameter, 'date')) { // If date parameter are entered in the URL.
     
     /* If the date parameter is a string */
     if (CheckInput::isDate($dateParameter['date'])) { //If parameter is a timestamp. 
@@ -61,18 +59,9 @@ if (  // If date parameter are entered in the URL.
     $testDate = "null";
 }
 
-// Convert date and timestamp into JSON;
-class json_obj {
-    public $date;
-    public $timestamp;
-    
-    public function __construct($date=null, $timestamp=null) {
-        $this->date = $date;
-        $this->timestamp = $timestamp;
-    }
-}
+// Convert date and timestamp into JSON format;
 $date_json_obj = new json_obj($date, $timestamp);
-$date_json_display = json_encode($date_json_obj); 
+$date_json_display = $date_json_obj->encode_to_json(); 
 
 // Print date ** FOR TESTING PURPOSES **
 //echo "<br>" . $date . "<br>" . $timestamp;
