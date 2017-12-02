@@ -5,14 +5,6 @@ include "classes/CheckInputClass.php";
 include "classes/JSON_ObjClass.php";
 include "classes/TimestampDateConvertorClass.php";
 
-
-///* Tell if the parameter given is a date or timestamp. */
-//if (preg_match("/^[a-zA-Z0-9]{4,10}$/i", $_GET['date'])) { //If parameter is a timestamp. 
-//    echo "timestamp";
-//} else { //If parameter is a date.
-//    echo "date";
-//}
-
 // Make the date parameter case insensitive.
 $dateParameter = array_change_key_case($_GET, CASE_LOWER); 
 
