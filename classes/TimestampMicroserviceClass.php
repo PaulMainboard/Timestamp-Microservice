@@ -13,9 +13,9 @@ class TimestampMicroservice {
     private $timestamp;
 
     public function __construct($dateTimestamp = null) {
-        if ($dateTimestamp) {
+        if ($dateTimestamp) { // If a timestamp or date was entered as an argument.
             $this->setTimeData($dateTimestamp);
-        } else {
+        } else { // No arguments was entered.
             $this->date = null;
             $this->timestamps = null;
         }
