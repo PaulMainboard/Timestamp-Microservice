@@ -3,7 +3,12 @@
 class CheckInput {
     
     public static function include_dashes_year_at_end($input) {
-        /* Check if the input has dashes and have year at the end of a date string (ex: MM-DD-YYYY)*/
+        /* 
+         * Check if the input has dashes and have year 
+         * at the end of a date string (ex: MM-DD-YYYY).
+         * This method also checks if the date was entered
+         * in a numerical format.
+         */
         
         // The string has dashes and has the year at the end.
         if (preg_match("/^[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}$/",$input)) {
@@ -14,7 +19,13 @@ class CheckInput {
     }
     
     public static function include_dashes_year_in_front($input) {
-        /* Check if the input has dashes and have year at the beginning of a date string (ex: YYYY-MM-DD)*/
+        /* 
+         * Check if the input has dashes and have year 
+         * at the beginning of a date string (ex: YYYY-MM-DD).
+         * This method also checks if the date was entered
+         * in a numerical format.
+         */
+        
         
         // The string has dashes and has the year at the beginning of the string.
         if (preg_match("/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/",$input)) {
