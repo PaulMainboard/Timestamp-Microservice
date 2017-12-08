@@ -15,5 +15,6 @@ if (CheckInput::have_parameter($dateParameter, 'date')) { // If date parameter a
 $date_json_obj = new json_obj(/*$date*/ $dateTimestamp->get_date(), /*$timestamp*/ $dateTimestamp->get_timestamp());
 $date_json_display = $date_json_obj->encode_to_json(); 
 
-// Print date ** FOR TESTING PURPOSES **
+//Print date ** FOR TESTING PURPOSES **
 echo $date_json_display;
+
