@@ -15,6 +15,7 @@ When visiting the site, if no parameters are given, a JSON object is created wit
 The site takes on parameter named date. To set this parameter, put a question mark "?" at the end of the URL and enter the desired timestamp or correctly formatted date.
 
 Here are a list of examples:
+
 https://paul-mainboard-timestamp.herokuapp.com/?date=2/18/2018
 
 https://paul-mainboard-timestamp.herokuapp.com/?date=Feb%2018%202018
@@ -27,7 +28,8 @@ https://paul-mainboard-timestamp.herokuapp.com/?date=2018-2-18
 
 https://paul-mainboard-timestamp.herokuapp.com/?date=02-18-2018
 
-The output of all the examples above is >{"date":"02-18-2018","timestamp":1518912000}
+The output of all the examples above is:
+>{"date":"02-18-2018","timestamp":1518912000}
 
 
 ## Motivation
