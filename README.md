@@ -4,7 +4,7 @@
 
 This is a program that takes a date parameter and return a JSON object containing the timestamp and the numerical date format of that parameter that was entered.
 
-You can visit the site [here](https://github.com/PaulMainboard/Timestamp-Microservice). 
+You can visit the site [here](https://paul-mainboard-timestamp.herokuapp.com/). 
 
 ## Code Example
 
