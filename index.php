@@ -1,3 +1,9 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
 <?php
 
 include "classes/TimestampMicroserviceClass.php";
@@ -11,19 +17,23 @@ if (CheckInput::have_parameter($dateParameter, 'date')) { // If date parameter a
     ?>
     <h1>Timestamp Microservice</h1>
     <h2>Instructions: </h2>
-    <p>Pass parameter in the URL as ?date=(date). The date parameter can be a human readable date like July 8 2017 or a timestamp.</p>
-    <p>The output of the program will be a JSON formatted object contain the timestamp and the matching numerical date of the parameter that was entered in the URL.</p>
-    <p>If nothing was entered as a parameter, the date and time variables of the site will be set to null.</p>
+    <ol>
+        <li>Pass parameter in the URL as ?date=(date). The date parameter can be a human readable date like July 8 2017 or a timestamp.</li>
+    <li>The output of the program will be a JSON formatted object contain the timestamp and the matching numerical date of the parameter that was entered in the URL.</li>
+    <li>If nothing was entered as a parameter, the date and time variables of the site will be set to null.</li>
+    </ol>
     <h2>Example usage:</h2>
-    <p>https://paul-mainboard-timestamp.herokuapp.com/?date=12/20/2017</p>
-    <p>https://paul-mainboard-timestamp.herokuapp.com/?date=Dec%2020%202017</p>
-    <p>https://paul-mainboard-timestamp.herokuapp.com/?date=1513728000</p>
-    <p>https://paul-mainboard-timestamp.herokuapp.com/?date=December%2020%202017</p>
-    <p>https://paul-mainboard-timestamp.herokuapp.com/?date=2017-12-20</p>
-    <p>https://paul-mainboard-timestamp.herokuapp.com/?date=12-20-2017</p>
-    <h2>Example Output:</h2>
-    <p>{"date":"12-20-2017","timestamp":1513724400}</p>
-    <h2>For more Info and the code for this site. Go to this page <a href="https://github.com/PaulMainboard/Timestamp-Microservice">GitHub Repository</a></h2>
+    <ol>
+        <li>https://paul-mainboard-timestamp.herokuapp.com/?date=12/20/2017</li>
+        <li>https://paul-mainboard-timestamp.herokuapp.com/?date=Dec%2020%202017</li>
+        <li>https://paul-mainboard-timestamp.herokuapp.com/?date=1513728000</li>
+        <li>https://paul-mainboard-timestamp.herokuapp.com/?date=December%2020%202017</li>
+        <li>https://paul-mainboard-timestamp.herokuapp.com/?date=2017-12-20</li>
+        <li>https://paul-mainboard-timestamp.herokuapp.com/?date=12-20-2017</li>
+    </ol>
+        <h2>Example Output:</h2>
+        <p>{"date":"12-20-2017","timestamp":1513724400}</p>    
+        <h2>For more Info and the code for this site. Go to this page <a href="https://github.com/PaulMainboard/Timestamp-Microservice">GitHub Repository</a></h2>
 <?php
     $dateTimestamp = new TimestampMicroservice();
 }
@@ -37,4 +47,6 @@ if ($dateTimestamp->get_timestamp()) {
     echo $date_json_display;   
 }
 
-
+?>
+    </body>
+</html>
