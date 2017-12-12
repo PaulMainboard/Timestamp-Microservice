@@ -24,15 +24,17 @@ if (CheckInput::have_parameter($dateParameter, 'date')) { // If date parameter a
     </ol>
     <h2>Example usage:</h2>
     <ol>
-        <li>https://paul-mainboard-timestamp.herokuapp.com/?date=12/20/2017</li>
-        <li>https://paul-mainboard-timestamp.herokuapp.com/?date=Dec%2020%202017</li>
-        <li>https://paul-mainboard-timestamp.herokuapp.com/?date=1513728000</li>
-        <li>https://paul-mainboard-timestamp.herokuapp.com/?date=December%2020%202017</li>
-        <li>https://paul-mainboard-timestamp.herokuapp.com/?date=2017-12-20</li>
-        <li>https://paul-mainboard-timestamp.herokuapp.com/?date=12-20-2017</li>
+        <li><span>https://paul-mainboard-timestamp.herokuapp.com/?date=12/20/2017</span></li>
+        <li><span>https://paul-mainboard-timestamp.herokuapp.com/?date=Dec%2020%202017</span></li>
+        <li><span>https://paul-mainboard-timestamp.herokuapp.com/?date=1513728000</span></li>
+        <li><span>https://paul-mainboard-timestamp.herokuapp.com/?date=December%2020%202017</span></li>
+        <li><span>https://paul-mainboard-timestamp.herokuapp.com/?date=2017-12-20</span></li>
+        <li><span>https://paul-mainboard-timestamp.herokuapp.com/?date=12-20-2017</span></li>
     </ol>
         <h2>Example Output:</h2>
-        <p>{"date":"12-20-2017","timestamp":1513724400}</p>    
+        <ol>
+            <li><span>{"date":"12-20-2017","timestamp":1513724400}</span></li>
+        </ol>
         <h2>For more Info and the code for this site. Go to this page <a href="https://github.com/PaulMainboard/Timestamp-Microservice">GitHub Repository</a></h2>
 <?php
     $dateTimestamp = new TimestampMicroservice();
